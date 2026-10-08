@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSCA Mathematics Question Bank: Analytic Geometry (200 Questions)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand: #cc342c;
+      --brand-dark: #a62a23;
+      --brand-light: #fdecea;
+      --brand-font: "Michroma", "Eurostile", "Microgramma", "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+      --primary: #2563eb;
+      --primary-light: #eff6ff;
+      --primary-dark: #1d4ed8;
+      --success: #16a34a;
+      --success-light: #dcfce7;
+      --danger: #dc2626;
+      --danger-light: #fee2e2;
+      --slate-50: #f8fafc;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-300: #cbd5e1;
+      --slate-600: #475569;
+      --slate-700: #334155;
+      --slate-800: #1e293b;
+      --slate-900: #0f172a;
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--slate-100);
+      color: var(--slate-800);
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+
+    /* ==================== 1. HERO HEADER (SCROLLS AWAY) ==================== */
+    header.hero-banner {
+      background: linear-gradient(135deg, #1e3a8a, #2563eb);
+      color: white;
+      padding: 16px 20px;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hero-title h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-title p {
+      font-size: 0.8rem;
+      opacity: 0.85;
+    }
+
+    /* ==================== 2. SLIM STICKY COMMAND BAR ==================== */
+    .sticky-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: white;
+      border-bottom: 1px solid var(--slate-200);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .sticky-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 8px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    /* Top Row: Tabs + Stats + Controls */
+    .bar-top-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .topic-tabs {
+      display: flex;
+      gap: 4px;
+      background: var(--slate-100);
+      padding: 3px;
+      border-radius: 6px;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--slate-700);
+      padding: 5px 12px;
+      border-radius: 4px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.15s;
+    }
+
+    .tab-btn:hover {
+      color: var(--primary);
+    }
+
+    .tab-btn.active {
+      background: white;
+      color: var(--primary);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .tab-badge {
+      font-size: 0.7rem;
+      opacity: 0.75;
+    }
+
+    .bar-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* Stats Pill */
+    .stat-pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+
+    .stat-lbl {
+      color: var(--slate-600);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+    }
+
+    .stat-val {
+      font-weight: 700;
+      color: var(--slate-800);
+    }
+
+    .mode-switch {
+      display: flex;
+      gap: 2px;
+      background: var(--slate-100);
+      padding: 2px;
+      border-radius: 4px;
+    }
+
+    .mode-btn {
+      background: transparent;
+      border: none;
+      color: var(--slate-700);
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .mode-btn.active {
+      background: white;
+      color: var(--primary);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+    }
+
+    .btn-action {
+      background: var(--slate-100);
+      border: 1px solid var(--slate-300);
+      color: var(--slate-700);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-action:hover {
+      background: var(--slate-200);
+    }
+
+    .btn-action.primary {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .toggle-grid-link {
+      background: none;
+      border: none;
+      color: var(--slate-600);
+      font-size: 0.75rem;
+      cursor: pointer;
+      font-weight: 600;
+      padding: 2px 4px;
+    }
+
+    .toggle-grid-link:hover {
+      color: var(--primary);
+    }
+
+    /* Bottom Row: Compact 1-50 Grid */
+    .bar-nav-row {
+      overflow-x: auto;
+      padding-top: 2px;
+    }
+
+    .bar-nav-row.collapsed {
+      display: none;
+    }
+
+    .jump-grid-compact {
+      display: grid;
+      grid-template-columns: repeat(25, 1fr);
+      gap: 4px;
+      min-width: 700px;
+    }
+
+    .jump-node {
+      height: 24px;
+      border-radius: 4px;
+      border: 1px solid var(--slate-200);
+      background: var(--slate-50);
+      color: var(--slate-600);
+      font-size: 0.72rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.1s;
+    }
+
+    .jump-node:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .jump-node.answered {
+      background: var(--slate-200);
+      color: var(--slate-800);
+    }
+
+    .jump-node.correct {
+      background: var(--success-light);
+      border-color: var(--success);
+      color: var(--success);
+    }
+
+    .jump-node.wrong {
+      background: var(--danger-light);
+      border-color: var(--danger);
+      color: var(--danger);
+    }
+
+    /* ==================== 3. QUESTIONS LIST ==================== */
+    main {
+      max-width: 1200px;
+      margin: 18px auto 0;
+      padding: 0 16px;
+    }
+
+    .question-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .q-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+      border: 1px solid var(--slate-200);
+      /* Compact scroll offset for the slim bar */
+      scroll-margin-top: 105px;
+    }
+
+    .q-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .q-id {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .q-tag {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+
+    .q-text {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--slate-900);
+      margin-bottom: 14px;
+      word-break: break-word;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    @media (min-width: 768px) {
+      .options-grid.grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .opt-btn {
+      background: var(--slate-50);
+      border: 1.5px solid var(--slate-200);
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 0.92rem;
+      text-align: left;
+      cursor: pointer;
+      color: var(--slate-800);
+      transition: all 0.12s ease;
+      display: flex;
+      align-items: center;
+    }
+
+    .opt-btn:hover:not(:disabled) {
+      background: var(--primary-light);
+      border-color: var(--primary);
+      color: var(--primary-dark);
+    }
+
+    .opt-btn.selected {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+
+    .opt-btn.correct {
+      background: var(--success-light) !important;
+      border-color: var(--success) !important;
+      color: var(--success) !important;
+      font-weight: 600;
+    }
+
+    .opt-btn.wrong {
+      background: var(--danger-light) !important;
+      border-color: var(--danger) !important;
+      color: var(--danger) !important;
+    }
+
+    .q-feedback {
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      display: none;
+    }
+
+    .q-feedback.show {
+      display: block;
+    }
+
+    .q-feedback.correct {
+      background: var(--success-light);
+      color: #14532d;
+      border-left: 4px solid var(--success);
+    }
+
+    .q-feedback.wrong {
+      background: var(--danger-light);
+      color: #7f1d1d;
+      border-left: 4px solid var(--danger);
+    }
+
+    /* Key Table Section */
+    .key-section {
+      background: white;
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-top: 28px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+      border: 1px solid var(--slate-200);
+    }
+
+    .key-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .key-header h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--slate-800);
+    }
+
+    .key-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 0.82rem;
+    }
+
+    .key-table th, .key-table td {
+      border: 1px solid var(--slate-200);
+      padding: 6px 8px;
+      text-align: center;
+    }
+
+    .key-table th {
+      background: var(--slate-100);
+      font-weight: 700;
+      color: var(--slate-700);
+    }
+
+    .key-table td.correct-highlight {
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .collapse-content {
+      display: none;
+    }
+
+    .collapse-content.open {
+      display: block;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.8rem;
+      color: var(--slate-600);
+    }
+
+    /* ==================== CROSSLINE EDU BRAND (logo red + logo-style font) ==================== */
+    header.hero-banner { background: linear-gradient(135deg, var(--brand-dark), var(--brand)); }
+    .hero-title h1 { font-family: var(--brand-font); font-weight: 400; letter-spacing: 0.04em; text-transform: uppercase; font-size: 1.05rem; }
+    .hero-title p { font-family: var(--brand-font); font-size: 0.68rem; letter-spacing: 0.06em; }
+
+    .sticky-bar { border-bottom: 2px solid var(--brand); }
+    .tab-btn, .mode-btn, .btn-action, .toggle-grid-link, .stat-lbl, .tab-badge { font-family: var(--brand-font); letter-spacing: 0.02em; }
+    .tab-btn { font-size: 0.74rem; font-weight: 400; }
+    .tab-btn:hover, .toggle-grid-link:hover, .jump-node:hover { color: var(--brand); }
+    .tab-btn.active, .mode-btn.active { color: var(--brand); }
+    .tab-btn.active { box-shadow: inset 0 -2px 0 var(--brand), 0 1px 3px rgba(0,0,0,0.1); }
+    .btn-action.primary { background: var(--brand); border-color: var(--brand); color: #fff; }
+    .btn-action.primary:hover { background: var(--brand-dark); }
+    .toggle-grid-link { color: var(--brand); }
+    .jump-node:hover { border-color: var(--brand); }
+
+    .hero-brand { display: flex; align-items: center; gap: 14px; }
+    .brand-logo { height: 52px; width: auto; background: #f9f7f2; border-radius: 10px; padding: 4px 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.18); flex-shrink: 0; }
+    @media (max-width: 560px) { .brand-logo { height: 40px; } .hero-brand { gap: 10px; } }
+  </style>
+</head>
+<body>
+
+<!-- Top Hero Banner: Normal scroll flow (disappears when scrolling down) -->
+<header class="hero-banner">
+  <div class="hero-content">
+    <div class="hero-brand">
+      <img class="brand-logo" src="data:image/png;base64,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" alt="Crossline EDU">
+      <div class="hero-title">
+      <h1>CSCA Analytic Geometry Question Bank (200 Questions)</h1>
+      <p>Chinese College Preparatory / Standard Entrance Exam Syllabus</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Ultra-Slim Sticky Command Bar (Takes < 85px) -->
+<div class="sticky-bar">
+  <div class="sticky-inner">
+    <!-- Row 1: Tabs + Stats + Mode + Controls -->
+    <div class="bar-top-row">
+      <!-- Topic Tabs -->
+      <div class="topic-tabs">
+        <button class="tab-btn active" onclick="switchTab('circles')" id="tab-circles">
+          Circles (圆) <span class="tab-badge">50</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('hyperbolas')" id="tab-hyperbolas">
+          Hyperbolas (双曲线) <span class="tab-badge">50</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('ellipses')" id="tab-ellipses">
+          Ellipses (椭圆) <span class="tab-badge">50</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('parabolas')" id="tab-parabolas">
+          Parabolas (抛物线) <span class="tab-badge">50</span>
+        </button>
+      </div>
+
+      <!-- Live Stats & Actions -->
+      <div class="bar-controls">
+        <div class="stat-pill">
+          <span class="stat-lbl">Progress</span>
+          <span class="stat-val" id="stat-progress">0 / 50</span>
+        </div>
+
+        <div class="stat-pill" id="practice-acc-box">
+          <span class="stat-lbl">Accuracy</span>
+          <span class="stat-val" id="stat-accuracy">--</span>
+        </div>
+
+        <div class="stat-pill" id="score-box" style="display:none;">
+          <span class="stat-lbl">Score</span>
+          <span class="stat-val" id="stat-score" style="color:var(--success);">0%</span>
+        </div>
+
+        <div class="mode-switch">
+          <button class="mode-btn active" id="btn-practice" onclick="setMode('practice')">Practice</button>
+          <button class="mode-btn" id="btn-exam" onclick="setMode('exam')">Exam</button>
+        </div>
+
+        <button class="btn-action" onclick="resetCurrentTab()">Reset</button>
+        <button class="btn-action primary" id="btn-submit-exam" style="display:none;" onclick="submitExam()">Grade</button>
+        <button class="toggle-grid-link" id="toggle-grid-btn" onclick="toggleNavigatorGrid()">▲ Minimize</button>
+      </div>
+    </div>
+
+    <!-- Row 2: 1-50 Navigator in Two Tight Rows of 25 -->
+    <div class="bar-nav-row" id="bar-nav-row">
+      <div class="jump-grid-compact" id="jump-grid"></div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <!-- Questions Container -->
+  <section class="question-list" id="questions-container"></section>
+
+  <!-- Quick Answer Key Section -->
+  <section class="key-section">
+    <div class="key-header" onclick="toggleAnswerKey()">
+      <h3 id="key-title">Quick Answer Key (Circles)</h3>
+      <span id="key-arrow" style="font-size:1rem; font-weight:bold;">▼</span>
+    </div>
+    <div class="collapse-content" id="key-content">
+      <div style="overflow-x:auto;">
+        <table class="key-table" id="key-table"></table>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© CSCA Mathematics Analytic Geometry Bank · All 200 Questions Embedded</p>
+</footer>
+
+<script>
+/* ==================== 1. QUESTION DATA (200 Questions) ==================== */
+const DATA = {
+  circles: [
+    {id:"CIR001", kp:"standard equation of a circle", q:"The equation of the circle with center (2，−3) and radius 4 is（　　）", options:["A. (x＋2)²＋(y−3)²＝16","B. (x−2)²＋(y＋3)²＝16","C. (x−2)²＋(y＋3)²＝4","D. (x＋2)²＋(y−3)²＝4"], ans:"B"},
+    {id:"CIR002", kp:"determining a point on a circle from the center and radius", q:"Circle C has center (−3，2) and radius 5. Which of the following points lies on circle C?（　　）", options:["A. (1，2)","B. (−3，6)","C. (0，2)","D. (2，2)"], ans:"D"},
+    {id:"CIR003", kp:"intersection of a circle with the y-axis", q:"The points where the circle with center (0，4) and radius 3 intersects the y-axis are（　　）", options:["A. (0，1) or (0，7)","B. (0，4)","C. (3，4) or (−3，4)","D. (0，3) or (0，5)"], ans:"A"},
+    {id:"CIR004", kp:"writing the general equation from the center and radius", q:"The general equation of the circle with center (−1，0) and radius 2 is（　　）", options:["A. x²＋y²−2x−3＝0","B. x²＋y²＋2x＋3＝0","C. x²＋y²＋2x−3＝0","D. x²＋y²−2x＋3＝0"], ans:"C"},
+    {id:"CIR005", kp:"identifying the center and radius", q:"The center and radius of the circle (x−2)²＋(y＋1)²＝9 are respectively（　　）", options:["A. (−2，1)，3","B. (2，−1)，3","C. (2，−1)，9","D. (−2，1)，9"], ans:"B"},
+    {id:"CIR006", kp:"intersection of a circle with the x-axis", q:"The points where the circle (x＋4)²＋(y−3)²＝16 intersects the x-axis are（　　）", options:["A. (−4＋4，0) or (−4−4，0)","B. (−4，3)","C. (0，3＋√7) or (0，3−√7)","D. (−4＋√7，0) or (−4−√7，0)"], ans:"D"},
+    {id:"CIR007", kp:"position of a circle relative to the coordinate axes", q:"The positional relationship between the circle x²＋(y＋2)²＝1 and the x-axis is（　　）", options:["A. The circle is entirely above the x-axis","B. The circle is intersecting the x-axis","C. The circle is entirely below the x-axis","D. The circle is tangent to the x-axis"], ans:"C"},
+    {id:"CIR008", kp:"the radius in the standard equation", q:"The radius of the circle (x−1)²＋(y＋2)²＝36 is（　　）", options:["A. 6","B. 36","C. 18","D. 3"], ans:"A"},
+    {id:"CIR009", kp:"the x-coordinate of the center in the standard equation", q:"The x-coordinate of the center of the circle (x＋5)²＋(y−1)²＝4 is（　　）", options:["A. 5","B. −1","C. 4","D. −5"], ans:"D"},
+    {id:"CIR010", kp:"the y-coordinate of the center in the standard equation", q:"The y-coordinate of the center of the circle (x−3)²＋(y＋6)²＝49 is（　　）", options:["A. 6","B. −6","C. 7","D. 49"], ans:"B"},
+    {id:"CIR011", kp:"the point that is the center of a circle", q:"The center of the circle (x−2)²＋(y−1)²＝9 is（　　）", options:["A. (2，1)","B. (−2，−1)","C. (2，−1)","D. (−2，1)"], ans:"A"},
+    {id:"CIR012", kp:"determining whether a point lies on a circle", q:"Which of the following points lies on the circle (x−1)²＋(y＋2)²＝9?（　　）", options:["A. (1，−2)","B. (2，−2)","C. (4，−2)","D. (1，0)"], ans:"C"},
+    {id:"CIR013", kp:"determining whether a point lies inside a circle", q:"The positional relationship between point P(1，1) and circle C：(x−1)²＋(y−1)²＝4 is（　　）", options:["A. Point P lies on the circle","B. Point P lies outside the circle","C. It cannot be determined","D. Point P lies inside the circle"], ans:"D"},
+    {id:"CIR014", kp:"the range of the parameter for a point outside the circle", q:"If point P(3，1) lies outside circle C：(x−1)²＋(y−1)²＝m, then the range of values of m is（　　）", options:["A. m＞4","B. 0＜m＜4","C. m＝4","D. m＜0"], ans:"B"},
+    {id:"CIR015", kp:"determining whether a point lies inside a circle (general form)", q:"The positional relationship between point P(1，3) and circle C：x²＋y²−2x−4y＝0 is（　　）", options:["A. Point P lies on the circle","B. Point P lies outside the circle","C. Point P lies inside the circle","D. It cannot be determined"], ans:"C"},
+    {id:"CIR016", kp:"distance from the center to a coordinate axis", q:"The distance from the center of the circle (x−3)²＋(y＋2)²＝25 to the x-axis is（　　）", options:["A. 2","B. 3","C. 5","D. √2"], ans:"A"},
+    {id:"CIR017", kp:"the center and radius from the general equation", q:"The center and radius of the circle x²＋y²−4x＋6y−3＝0 are respectively（　　）", options:["A. (−2，3)，4","B. (2，−3)，4","C. (2，−3)，16","D. (−2，3)，16"], ans:"B"},
+    {id:"CIR018", kp:"distance from the center to the origin (general form)", q:"The distance from the center of the circle x²＋y²＋2x−8y＋1＝0 to the origin is（　　）", options:["A. 4","B. 17","C. 5","D. √17"], ans:"D"},
+    {id:"CIR019", kp:"the radius from the general equation", q:"The radius of the circle x²＋y²＋2x−2y＝0 is（　　）", options:["A. 1","B. 2","C. √2","D. 4"], ans:"C"},
+    {id:"CIR020", kp:"the center from the general equation", q:"The center of the circle x²＋y²−6x＋4y−3＝0 is（　　）", options:["A. (3，−2)","B. (−3，2)","C. (3，2)","D. (−3，−2)"], ans:"A"},
+    {id:"CIR021", kp:"determining whether a point lies inside the circle using the general form", q:"Point P(1，−2) is（　　）circle C：x²＋y²−2x＋4y−11＝0", options:["A. inside the circle","B. on the circle","C. outside the circle","D. cannot be determined"], ans:"A"},
+    {id:"CIR022", kp:"finding the constant from a point on the circle (general form)", q:"If the circle x²＋y²−4x＋2y＋m＝0 passes through point (1，1), then m＝（　　）", options:["A. −1","B. 3","C. −3","D. 1"], ans:"D"},
+    {id:"CIR023", kp:"finding the coefficient from the center (general form)", q:"If the x-coordinate of the center of the circle x²＋y²＋Dx−6y＋7＝0 is 2, then D＝（　　）", options:["A. 4","B. −4","C. −2","D. 2"], ans:"B"},
+    {id:"CIR024", kp:"relationship between the center coordinates (general form)", q:"If the center of the circle x²＋y²＋Dx＋Ey＋F＝0 lies on the line x＋y＝0, then D and E satisfy（　　）", options:["A. D−E＝0","B. DE＝0","C. D＋E＝0","D. D＝E＝0"], ans:"C"},
+    {id:"CIR025", kp:"condition for the general form to represent a circle", q:"If the equation x²＋y²−2x＋4y＋m＝0 represents a circle of radius 3, then m＝（　　）", options:["A. −9","B. 4","C. −4","D. 9"], ans:"C"},
+    {id:"CIR026", kp:"the range of the radius (general form)", q:"If the radius of the circle x²＋y²＋4x−6y＋m＝0 is less than 4, then the range of values of m is（　　）", options:["A. −3＜m＜13","B. m＜−3","C. m＞13","D. −3≤m≤13"], ans:"A"},
+    {id:"CIR027", kp:"finding the linear coefficient from the radius (general form)", q:"If the radius of the circle x²＋y²＋2ax−4y＋1＝0 is √3, then a＝（　　）", options:["A. 1","B. −1","C. 2","D. 0"], ans:"D"},
+    {id:"CIR028", kp:"the position of the center (general form)", q:"In which quadrant is the center of the circle x²＋y²−2x＋2y＋m＝0 located?（　　）", options:["A. The first quadrant","B. The fourth quadrant","C. The second quadrant","D. The third quadrant"], ans:"B"},
+    {id:"CIR029", kp:"whether the general form represents a circle", q:"The figure represented by the equation x²＋y²−2x＋4y＋6＝0 is（　　）", options:["A. A figure with no real points","B. A circle of radius 1","C. A circle of radius √6","D. A single point"], ans:"A"},
+    {id:"CIR030", kp:"the square of the radius (general form)", q:"The square of the radius of the circle x²＋y²−4x＋2y−2＝0 is（　　）", options:["A. √7","B. 5","C. 2","D. 7"], ans:"D"},
+    {id:"CIR031", kp:"condition for the general form to represent a circle", q:"If the equation x²＋y²＋2x−4y＋m＝0 represents a circle, then the range of values of m is（　　）", options:["A. m≤5","B. m＜5","C. m＞5","D. m≥5"], ans:"B"},
+    {id:"CIR032", kp:"determining a circle from its center and a point on the circle", q:"The equation of the circle with center (2，0) that passes through point (2，3) is（　　）", options:["A. (x−2)²＋(y−3)²＝9","B. x²＋(y−2)²＝9","C. (x−2)²＋y²＝9","D. (x−2)²＋y²＝3"], ans:"C"},
+    {id:"CIR033", kp:"determining a circle from its center and a point on the circle", q:"The radius of the circle with center (−1，2) that passes through point (2，6) is（　　）", options:["A. 5","B. 3","C. 4","D. 25"], ans:"A"},
+    {id:"CIR034", kp:"the general equation of a circle determined by its center and a point on the circle", q:"The general equation of the circle with center (1，−2) that passes through point (4，2) is（　　）", options:["A. x²＋y²＋2x−4y−20＝0","B. x²＋y²−2x＋4y＋20＝0","C. x²＋y²＋2x−4y＋20＝0","D. x²＋y²−2x＋4y−20＝0"], ans:"D"},
+    {id:"CIR035", kp:"a parameterized point on a circle", q:"If point P(a，2) lies on the circle (x−1)²＋(y−2)²＝9, then a＝（　　）", options:["A. 1 or −1","B. 4","C. 4 or −2","D. −2"], ans:"C"},
+    {id:"CIR036", kp:"the distance between a point on the circle and the center", q:"The distance from point P(3，0) to the center of circle C：(x−1)²＋(y＋2)²＝8 is（　　）", options:["A. 2","B. 2√2","C. 4","D. 8"], ans:"B"},
+    {id:"CIR037", kp:"the range of the parameter for a point inside the circle", q:"If point P(a，1) lies inside or on the circle (x−2)²＋(y−1)²＝16, then the range of values of a is（　　）", options:["A. (−2，6)","B. [−4，4]","C. (−4，4)","D. [−2，6]"], ans:"D"},
+    {id:"CIR038", kp:"the product of the roots of the parameter on a circle", q:"If point P(0，b) lies on the circle (x−3)²＋(y−1)²＝25, the product of all values of b satisfying the condition is（　　）", options:["A. −15","B. −25","C. 15","D. 5"], ans:"A"},
+    {id:"CIR039", kp:"intersection with the x-axis", q:"The coordinates of the point where the circle x²＋(y−2)²＝4 intersects the x-axis are（　　）", options:["A. (2，0)","B. (0，0)","C. (−2，0)","D. (0，2)"], ans:"B"},
+    {id:"CIR040", kp:"whether the circle passes through the origin", q:"The circle (x−2)²＋y²＝4（　　）", options:["A. does not pass through the origin","B. has the origin as its center","C. passes through the origin","D. has radius 0"], ans:"C"},
+    {id:"CIR041", kp:"comparing the center with the radius", q:"The relationship between the distance from the center of the circle x²＋(y−2)²＝1 to the x-axis and its radius is（　　）", options:["A. The distance from the center to the x-axis is equal to the radius","B. The distance from the center to the x-axis is less than the radius","C. The distance from the center to the x-axis is greater than the radius","D. They cannot be compared"], ans:"C"},
+    {id:"CIR042", kp:"the number of intersection points with a coordinate axis", q:"The number of common points of the circle (x−1)²＋y²＝1 and the x-axis is（　　）", options:["A. 2","B. 0","C. 1","D. Infinitely many"], ans:"A"},
+    {id:"CIR043", kp:"the condition for passing through the origin", q:"If the circle (x−a)²＋(y−2)²＝5 passes through the origin, then a＝（　　）", options:["A. 2","B. −2","C. ±√5","D. ±1"], ans:"D"},
+    {id:"CIR044", kp:"the center coordinates and passing through the origin", q:"If the circle has center (a，1), radius √5, and passes through the origin, then a＝（　　）", options:["A. 1","B. ±2","C. −1","D. ±√5"], ans:"B"},
+    {id:"CIR045", kp:"the x-coordinate of a point on the circle", q:"On the circle (x−1)²＋(y−2)²＝5, the x-coordinate of the point(s) with y-coordinate 4 is（　　）", options:["A. 2 or 0","B. 1","C. 3 or −1","D. ±√5"], ans:"A"},
+    {id:"CIR046", kp:"the y-coordinate of a point on the circle", q:"On the circle (x＋2)²＋(y−1)²＝10, the y-coordinate of the point(s) with x-coordinate 1 is（　　）", options:["A. 1 or −1","B. 3 or −1","C. 2 or 0","D. ±√10"], ans:"C"},
+    {id:"CIR047", kp:"symmetry of a circle", q:"The equation of the circle (x−3)²＋(y＋2)²＝16 after reflection about the x-axis is（　　）", options:["A. (x＋3)²＋(y＋2)²＝16","B. (x−3)²＋(y−2)²＝16","C. (x＋3)²＋(y−2)²＝16","D. (x−3)²＋(y＋2)²＝16"], ans:"B"},
+    {id:"CIR048", kp:"symmetry of a circle", q:"The center of the circle (x＋1)²＋(y−4)²＝9 after reflection about the y-axis is（　　）", options:["A. (−1，−4)","B. (1，−4)","C. (−1，4)","D. (1，4)"], ans:"D"},
+    {id:"CIR049", kp:"translation of a circle", q:"After the circle x²＋y²＝4 is translated 3 units to the right and 1 unit upward, the equation of the resulting circle is（　　）", options:["A. (x−3)²＋(y−1)²＝4","B. (x＋3)²＋(y＋1)²＝4","C. (x−3)²＋(y−1)²＝2","D. (x＋3)²＋(y＋1)²＝2"], ans:"A"},
+    {id:"CIR050", kp:"the circle after symmetry about the origin", q:"The equation of the circle (x−1)²＋(y＋2)²＝25 after reflection about the origin is（　　）", options:["A. (x−1)²＋(y−2)²＝25","B. (x＋1)²＋(y＋2)²＝25","C. (x−1)²＋(y＋2)²＝25","D. (x＋1)²＋(y−2)²＝25"], ans:"D"}
+  ],
+
+  hyperbolas: [
+    {id:"HYP001", kp:"Recognizing the standard equation of a hyperbola", q:"Among the following equations, the one that represents a hyperbola with foci on the x-axis is（　　）", options:["A. y²/9−x²/16＝1","B. x²/16−y²/9＝1","C. x²/16＋y²/9＝1","D. x²/16−y²/9＝0"], ans:"B"},
+    {id:"HYP002", kp:"Recognizing the standard equation of a hyperbola", q:"Among the following equations, the one that represents a hyperbola with foci on the y-axis is（　　）", options:["A. x²/25−y²/9＝1","B. x²/9＋y²/25＝1","C. y²/25−x²/9＝0","D. y²/25−x²/9＝1"], ans:"D"},
+    {id:"HYP003", kp:"The center of a hyperbola", q:"The center of the hyperbola x²/9−y²/16＝1 is（　　）", options:["A. (0，0)","B. (3，0)","C. (0，4)","D. (3，4)"], ans:"A"},
+    {id:"HYP004", kp:"The direction of the transverse axis of a hyperbola", q:"The transverse axis of the hyperbola x²/9−y²/4＝1 lies on（　　）", options:["A. the y-axis","B. the line y＝x","C. the x-axis","D. it cannot be determined"], ans:"C"},
+    {id:"HYP005", kp:"The foci of a hyperbola", q:"The foci of the hyperbola x²/16−y²/9＝1 are（　　）", options:["A. (−4，0)，(4，0)","B. (−5，0)，(5，0)","C. (0，−5)，(0，5)","D. (0，−3)，(0，3)"], ans:"B"},
+    {id:"HYP006", kp:"The foci of a hyperbola", q:"The foci of the hyperbola y²/25−x²/9＝1 are（　　）", options:["A. (−√34，0)，(√34，0)","B. (0，−5)，(0，5)","C. (0，−4)，(0，4)","D. (0，−√34)，(0，√34)"], ans:"D"},
+    {id:"HYP007", kp:"The vertices of a hyperbola", q:"The vertices of the hyperbola x²/25−y²/16＝1 are（　　）", options:["A. (0，−5)，(0，5)","B. (−4，0)，(4，0)","C. (−5，0)，(5，0)","D. (0，−4)，(0，4)"], ans:"C"},
+    {id:"HYP008", kp:"The endpoints of the conjugate axis of a hyperbola", q:"The endpoints of the conjugate axis of the hyperbola x²/25−y²/16＝1 are（　　）", options:["A. (0，−4)，(0，4)","B. (−5，0)，(5，0)","C. (−4，0)，(4，0)","D. (0，−5)，(0，5)"], ans:"A"},
+    {id:"HYP009", kp:"The length of the transverse axis of a hyperbola", q:"The length of the transverse axis of the hyperbola x²/36−y²/16＝1 is（　　）", options:["A. 6","B. 8","C. 20","D. 12"], ans:"D"},
+    {id:"HYP010", kp:"The length of the conjugate axis of a hyperbola", q:"The length of the conjugate axis of the hyperbola x²/25−y²/9＝1 is（　　）", options:["A. 10","B. 6","C. 3","D. 8"], ans:"B"},
+    {id:"HYP011", kp:"The focal distance of a hyperbola", q:"The focal distance of the hyperbola x²/20−y²/5＝1 is（　　）", options:["A. 10","B. 5","C. √5","D. 25"], ans:"A"},
+    {id:"HYP012", kp:"The eccentricity of a hyperbola", q:"The eccentricity of the hyperbola x²/16−y²/9＝1 is（　　）", options:["A. 3/4","B. 4/5","C. 5/4","D. 1/4"], ans:"C"},
+    {id:"HYP013", kp:"Finding c from a and the eccentricity", q:"Given a hyperbola with semi-transverse axis length a＝8 and eccentricity e＝5/4, then the semi-focal distance c＝（　　）", options:["A. 5","B. 13","C. 4","D. 10"], ans:"D"},
+    {id:"HYP014", kp:"The range of the eccentricity", q:"The eccentricity e of a hyperbola satisfies（　　）", options:["A. 0＜e＜1","B. e＞1","C. e＝1","D. e＜0"], ans:"B"},
+    {id:"HYP015", kp:"The eccentricity of an equilateral hyperbola", q:"The eccentricity of the hyperbola x²/9−y²/9＝1 is（　　）", options:["A. 1","B. 3","C. √2","D. 2"], ans:"C"},
+    {id:"HYP016", kp:"The asymptotes of a hyperbola", q:"The asymptote equations of the hyperbola x²/16−y²/9＝1 are（　　）", options:["A. y＝±3x/4","B. y＝±4x/3","C. y＝±5x/4","D. y＝±3x/5"], ans:"A"},
+    {id:"HYP017", kp:"Finding c from a and b", q:"Given a hyperbola with semi-transverse axis length a＝3 and semi-conjugate axis length b＝4, then the semi-focal distance c＝（　　）", options:["A. 1","B. 5","C. 7","D. √7"], ans:"B"},
+    {id:"HYP018", kp:"Finding b from a and c", q:"Given a hyperbola with semi-transverse axis length a＝5 and semi-focal distance c＝13, then the semi-conjugate axis length b＝（　　）", options:["A. 8","B. 18","C. √194","D. 12"], ans:"D"},
+    {id:"HYP019", kp:"Finding a from the focal distance and the eccentricity", q:"Given a hyperbola with focal distance 10 and eccentricity 5/4, then a＝（　　）", options:["A. 5","B. 8","C. 4","D. 10"], ans:"C"},
+    {id:"HYP020", kp:"Finding the equation from the focal distance and the eccentricity", q:"A hyperbola is centered at the origin with foci on the y-axis, focal distance 6, and eccentricity 3/2; then its equation is（　　）", options:["A. y²/4−x²/5＝1","B. x²/4−y²/5＝1","C. y²/9−x²/5＝1","D. x²/5−y²/4＝1"], ans:"A"},
+    {id:"HYP021", kp:"Finding the equation from the transverse axis and the foci", q:"A hyperbola has a transverse axis of length 8 and foci (−5，0)、(5，0); then its equation is（　　）", options:["A. x²/16−y²/9＝1","B. x²/25−y²/9＝1","C. y²/16−x²/9＝1","D. x²/16−y²/25＝1"], ans:"A"},
+    {id:"HYP022", kp:"Finding the equation from the vertices and the foci", q:"A hyperbola has vertices (−3，0)、(3，0) and foci (−5，0)、(5，0); then its equation is（　　）", options:["A. x²/25−y²/16＝1","B. y²/9−x²/16＝1","C. x²/9−y²/25＝1","D. x²/9−y²/16＝1"], ans:"D"},
+    {id:"HYP023", kp:"Finding the equation from the conjugate axis and the eccentricity", q:"A hyperbola is centered at the origin with foci on the x-axis, a conjugate axis of length 6, and eccentricity 5/4; then its equation is（　　）", options:["A. x²/25−y²/9＝1","B. x²/16−y²/9＝1","C. y²/16−x²/9＝1","D. x²/16−y²/25＝1"], ans:"B"},
+    {id:"HYP024", kp:"The coefficient condition for a hyperbola", q:"If the equation mx²＋ny²＝1 represents a hyperbola, then m and n satisfy（　　）", options:["A. mn＞0","B. mn＝0","C. mn＜0","D. m＋n＝0"], ans:"C"},
+    {id:"HYP025", kp:"Recovering the coefficient from the standard equation", q:"The asymptotes of the hyperbola x²/a²−y²/16＝1 are y＝±x; then a＝（　　）", options:["A. 2","B. 8","C. 4","D. 16"], ans:"C"},
+    {id:"HYP026", kp:"The distance between a focus and the vertex on the opposite side", q:"The distance from the right focus to the left vertex of the hyperbola x²/9−y²/16＝1 is（　　）", options:["A. 8","B. 1","C. 5","D. 10"], ans:"A"},
+    {id:"HYP027", kp:"Finding b from the eccentricity", q:"Given a hyperbola with semi-transverse axis length a＝4 and eccentricity e＝5/4, then the semi-conjugate axis length b＝（　　）", options:["A. 5","B. 1","C. √41","D. 3"], ans:"D"},
+    {id:"HYP028", kp:"Finding the equation from the foci and the conjugate axis", q:"A hyperbola is centered at the origin with foci (−5，0)、(5，0) and a conjugate axis of length 6; then its equation is（　　）", options:["A. x²/25−y²/9＝1","B. x²/16−y²/9＝1","C. y²/16−x²/9＝1","D. x²/16−y²/25＝1"], ans:"B"},
+    {id:"HYP029", kp:"The slope of an asymptote", q:"The slope of one asymptote of the hyperbola x²/25−y²/4＝1 is（　　）", options:["A. 2/5","B. 5/2","C. 2","D. 1/2"], ans:"A"},
+    {id:"HYP030", kp:"The asymptotes of a vertical-axis hyperbola", q:"The asymptote equations of the hyperbola y²/9−x²/4＝1 are（　　）", options:["A. y＝±2x/3","B. y＝±3x/4","C. y＝±2x/3＋1","D. y＝±3x/2"], ans:"D"},
+    {id:"HYP031", kp:"The definition of a hyperbola", q:"For any point P on the hyperbola x²/9−y²/4＝1, the absolute value of the difference of its distances to the two foci is（　　）", options:["A. 3","B. 6","C. 4","D. 10"], ans:"B"},
+    {id:"HYP032", kp:"The converse of the definition of a hyperbola", q:"A hyperbola has a transverse axis of length 8. P is a point on the hyperbola, with F₁ the left focus and F₂ the right focus. If |PF₁|−|PF₂|＝8, then P is located on the（　　）", options:["A. left branch","B. conjugate axis","C. right branch","D. it cannot be determined"], ans:"C"},
+    {id:"HYP033", kp:"The coordinates of a point on a hyperbola", q:"Point P(5，y) lies on the hyperbola x²/16−y²/9＝1; then y＝（　　）", options:["A. ±9/4","B. ±3/4","C. ±5/4","D. ±3"], ans:"A"},
+    {id:"HYP034", kp:"Determining an endpoint of a hyperbola", q:"The positional relationship between the point P(4，0) and the hyperbola x²/16−y²/9＝1 is（　　）", options:["A. Point P is outside the hyperbola","B. Point P is a focus","C. Point P is an endpoint of the conjugate axis","D. Point P is a vertex of the hyperbola"], ans:"D"},
+    {id:"HYP035", kp:"The intersection of a hyperbola with the coordinate axes", q:"The intersections of the hyperbola x²/16−y²/9＝1 with the x-axis are（　　）", options:["A. (0，−3)，(0，3)","B. (−3，0)，(3，0)","C. (−4，0)，(4，0)","D. (0，−4)，(0，4)"], ans:"C"},
+    {id:"HYP036", kp:"Finding the intercepts on a hyperbola", q:"The x-coordinates of the intersections of the line y＝3 and the hyperbola x²/16−y²/9＝1 are（　　）", options:["A. ±4","B. ±4√2","C. ±3","D. ±5"], ans:"B"},
+    {id:"HYP037", kp:"Determining a point on a hyperbola", q:"Among the following points, the one that lies on the hyperbola x²/9−y²/16＝1 is（　　）", options:["A. (0，4)","B. (4，0)","C. (0，3)","D. (3，0)"], ans:"D"},
+    {id:"HYP038", kp:"The range of the x-coordinate of a hyperbola", q:"The x-coordinate x of a point P(x，y) on the hyperbola x²/25−y²/9＝1 satisfies（　　）", options:["A. x≤−5 or x≥5","B. −5≤x≤5","C. x∈ℝ","D. −3≤x≤3"], ans:"A"},
+    {id:"HYP039", kp:"The range of the y-coordinate of a hyperbola", q:"The y-coordinate y of a point P(x，y) on the hyperbola x²/25−y²/9＝1 satisfies（　　）", options:["A. −3≤y≤3","B. y∈ℝ","C. y≥0","D. y≤0"], ans:"B"},
+    {id:"HYP040", kp:"The symmetry of a hyperbola", q:"The axes of symmetry and the center of symmetry of the hyperbola x²/16−y²/9＝1 are（　　）", options:["A. only the x-axis","B. only the y-axis","C. the x-axis, the y-axis, and the origin","D. only the origin"], ans:"C"},
+    {id:"HYP041", kp:"Determining the direction of the foci of a hyperbola", q:"The foci of the hyperbola x²/a²−y²/b²＝1（a,b＞0）lie on（　　）", options:["A. the y-axis","B. the line y＝x","C. the x-axis","D. it cannot be determined"], ans:"C"},
+    {id:"HYP042", kp:"Distinguishing the basic properties of a hyperbola", q:"Regarding the hyperbola x²/a²−y²/b²＝1（a,b＞0）, which of the following statements is correct?（　　）", options:["A. The foci are at (±c，0)","B. The length of the transverse axis is 2b","C. The eccentricity is b/a","D. c²＝a²−b²"], ans:"A"},
+    {id:"HYP043", kp:"The distance between a focus and a vertex of a hyperbola", q:"The distance from the right focus to the right vertex of the hyperbola x²/16−y²/9＝1 is（　　）", options:["A. 3","B. 4","C. 5","D. 1"], ans:"D"},
+    {id:"HYP044", kp:"The relation among the parameters of a hyperbola", q:"The focal distance of the hyperbola x²/a²−y²/b²＝1（a,b＞0）is（　　）", options:["A. √(a²＋b²)","B. 2√(a²＋b²)","C. a²＋b²","D. 2(a²＋b²)"], ans:"B"},
+    {id:"HYP045", kp:"The asymptotes of an equilateral hyperbola", q:"One asymptote of the hyperbola x²/9−y²/9＝1 is（　　）", options:["A. y＝x","B. y＝3x","C. y＝x＋3","D. x＝3"], ans:"A"},
+    {id:"HYP046", kp:"Simplifying a hyperbola equation", q:"The equation 4x²−9y²＝36 can be reduced to（　　）", options:["A. x²/4−y²/9＝1","B. y²/4−x²/9＝1","C. x²/9−y²/4＝1","D. x²/9＋y²/4＝1"], ans:"C"},
+    {id:"HYP047", kp:"Determining a hyperbola equation", q:"Among the following equations, the one that represents a hyperbola is（　　）", options:["A. x²/16＋y²/9＝1","B. x²/16−y²/9＝1","C. x²＋y²＝9","D. x²/16−y²/9＝0"], ans:"B"},
+    {id:"HYP048", kp:"The direction of the transverse axis after transformation", q:"The transverse axis of the hyperbola represented by the equation 9y²−4x²＝36 lies on（　　）", options:["A. the x-axis","B. the line y＝x","C. it cannot be determined","D. the y-axis"], ans:"D"},
+    {id:"HYP049", kp:"The axis lengths of an equilateral hyperbola", q:"The lengths of the transverse axis and the conjugate axis of the hyperbola x²/4−y²/4＝1 are respectively（　　）", options:["A. 4，4","B. 2，2","C. 4，2","D. 2，4"], ans:"A"},
+    {id:"HYP050", kp:"Writing the equation from the asymptotes and the vertices", q:"A hyperbola has vertices (−4，0)、(4，0) and asymptotes y＝±3x/4; then its equation is（　　）", options:["A. x²/9−y²/16＝1","B. y²/16−x²/9＝1","C. x²/16−y²/16＝1","D. x²/16−y²/9＝1"], ans:"D"}
+  ],
+
+  ellipses: [
+    {id:"ELL001", kp:"Recognizing the standard equation of an ellipse", q:"Among the following equations, the one that represents an ellipse with foci on the x-axis is（　　）", options:["A. x²/16＋y²/25＝1","B. x²/25＋y²/16＝1","C. x²/25−y²/16＝1","D. x²/16＋y²/16＝1"], ans:"B"},
+    {id:"ELL002", kp:"Recognizing the standard equation of an ellipse", q:"Among the following equations, the one that represents an ellipse with foci on the y-axis is（　　）", options:["A. y²/25＋x²/16＝1","B. x²/25＋y²/16＝1","C. y²/16−x²/25＝1","D. x²＋y²＝25"], ans:"A"},
+    {id:"ELL003", kp:"The center of an ellipse", q:"The center of the ellipse x²/9＋y²/16＝1 is（　　）", options:["A. (0，0)","B. (3，0)","C. (0，4)","D. (3，4)"], ans:"A"},
+    {id:"ELL004", kp:"Direction of major axis", q:"The major axis of the ellipse x²/25＋y²/9＝1 lies on（　　）", options:["A. the y-axis","B. the line y＝x","C. the x-axis","D. cannot be determined"], ans:"C"},
+    {id:"ELL005", kp:"The foci of an ellipse", q:"The foci of the ellipse x²/25＋y²/16＝1 are（　　）", options:["A. (0，−3)，(0，3)","B. (−3，0)，(3，0)","C. (−5，0)，(5，0)","D. (−4，0)，(4，0)"], ans:"B"},
+    {id:"ELL006", kp:"The foci of a vertical ellipse", q:"The foci of the ellipse y²/25＋x²/9＝1 are（　　）", options:["A. (−4，0)，(4，0)","B. (0，−5)，(0，5)","C. (0，−3)，(0，3)","D. (0，−4)，(0，4)"], ans:"D"},
+    {id:"ELL007", kp:"Vertices on major axis", q:"The vertices on the major axis of the ellipse x²/25＋y²/16＝1 are（　　）", options:["A. (0，−4)，(0，4)","B. (−4，0)，(4，0)","C. (−5，0)，(5，0)","D. (0，−5)，(0，5)"], ans:"C"},
+    {id:"ELL008", kp:"Endpoints of minor axis", q:"The endpoints of the minor axis of the ellipse x²/25＋y²/16＝1 are（　　）", options:["A. (0，−4)，(0，4)","B. (−4，0)，(4，0)","C. (−5，0)，(5，0)","D. (0，−5)，(0，5)"], ans:"A"},
+    {id:"ELL009", kp:"Length of major axis", q:"The length of the major axis of the ellipse x²/36＋y²/16＝1 is（　　）", options:["A. 6","B. 8","C. 16","D. 12"], ans:"D"},
+    {id:"ELL010", kp:"Length of minor axis", q:"The length of the minor axis of the ellipse x²/25＋y²/9＝1 is（　　）", options:["A. 10","B. 6","C. 3","D. 8"], ans:"B"},
+    {id:"ELL011", kp:"Focal distance of an ellipse", q:"The focal distance (2c) of the ellipse x²/25＋y²/9＝1 is（　　）", options:["A. 8","B. 4","C. 10","D. 6"], ans:"A"},
+    {id:"ELL012", kp:"Eccentricity of an ellipse", q:"The eccentricity of the ellipse x²/25＋y²/16＝1 is（　　）", options:["A. 4/5","B. 3/4","C. 3/5","D. 5/3"], ans:"C"},
+    {id:"ELL013", kp:"Finding c from a and e", q:"Given an ellipse with semi-major axis a＝10 and eccentricity e＝3/5, then c＝（　　）", options:["A. 3","B. 4","C. 5","D. 6"], ans:"D"},
+    {id:"ELL014", kp:"Range of eccentricity", q:"The eccentricity e of an ellipse satisfies（　　）", options:["A. 0＜e＜1","B. e＞1","C. e＝1","D. e＜0"], ans:"A"},
+    {id:"ELL015", kp:"Degenerate ellipse condition", q:"When the eccentricity of an ellipse e＝0, the figure becomes a（　　）", options:["A. line segment","B. circle","C. point","D. hyperbola"], ans:"B"},
+    {id:"ELL016", kp:"Major axis of vertical ellipse", q:"The length of the major axis of the ellipse y²/49＋x²/24＝1 is（　　）", options:["A. 7","B. 10","C. 14","D. 24"], ans:"C"},
+    {id:"ELL017", kp:"Finding c from a and b", q:"Given an ellipse with semi-major axis a＝5 and semi-minor axis b＝4, then c＝（　　）", options:["A. 1","B. 3","C. 9","D. √41"], ans:"B"},
+    {id:"ELL018", kp:"Finding b from a and c", q:"Given an ellipse with semi-major axis a＝13 and semi-focal distance c＝5, then b＝（　　）", options:["A. 8","B. 10","C. 144","D. 12"], ans:"D"},
+    {id:"ELL019", kp:"Finding a from focal distance and e", q:"Given an ellipse with focal distance 10 and eccentricity 5/6, then the semi-major axis a＝（　　）", options:["A. 6","B. 12","C. 8","D. 10"], ans:"A"},
+    {id:"ELL020", kp:"Equation from focal distance and e", q:"An ellipse is centered at the origin with foci on the y-axis, focal distance 6, and eccentricity 3/5; then its equation is（　　）", options:["A. y²/25＋x²/16＝1","B. x²/25＋y²/16＝1","C. y²/16＋x²/9＝1","D. y²/25＋x²/9＝1"], ans:"A"},
+    {id:"ELL021", kp:"Equation from major axis and foci", q:"An ellipse has a major axis of length 10 and foci (−4，0)、(4，0); then its equation is（　　）", options:["A. x²/25＋y²/9＝1","B. x²/25＋y²/16＝1","C. y²/25＋x²/9＝1","D. x²/16＋y²/9＝1"], ans:"A"},
+    {id:"ELL022", kp:"Equation from vertices and foci", q:"An ellipse has major vertices (−5，0)、(5，0) and foci (−3，0)、(3，0); then its equation is（　　）", options:["A. x²/25＋y²/9＝1","B. y²/25＋x²/16＝1","C. x²/16＋y²/9＝1","D. x²/25＋y²/16＝1"], ans:"D"},
+    {id:"ELL023", kp:"Equation from minor axis and e", q:"An ellipse is centered at the origin with foci on the x-axis, minor axis length 6, and eccentricity 4/5; then its equation is（　　）", options:["A. x²/16＋y²/9＝1","B. x²/25＋y²/9＝1","C. y²/25＋x²/9＝1","D. x²/25＋y²/16＝1"], ans:"B"},
+    {id:"ELL024", kp:"Coefficient condition for an ellipse", q:"If the equation mx²＋ny²＝1 represents an ellipse, then m and n must satisfy（　　）", options:["A. mn＜0","B. m＝n＞0","C. m＞0，n＞0 and m≠n","D. m＋n＞0"], ans:"C"},
+    {id:"ELL025", kp:"Finding parameter from standard equation", q:"The ellipse x²/a²＋y²/9＝1 (a＞3) has eccentricity 4/5; then a＝（　　）", options:["A. 4","B. 15","C. 5","D. 25"], ans:"C"},
+    {id:"ELL026", kp:"Distance between opposite focus and vertex", q:"The distance from the right focus to the left vertex of the ellipse x²/25＋y²/16＝1 is（　　）", options:["A. 8","B. 2","C. 6","D. 10"], ans:"A"},
+    {id:"ELL027", kp:"Finding b from eccentricity", q:"Given an ellipse with semi-major axis a＝5 and eccentricity e＝3/5, then the semi-minor axis b＝（　　）", options:["A. 3","B. 2","C. √34","D. 4"], ans:"D"},
+    {id:"ELL028", kp:"Equation from foci and minor axis", q:"An ellipse is centered at the origin with foci (−3，0)、(3，0) and minor axis length 8; then its equation is（　　）", options:["A. x²/16＋y²/9＝1","B. x²/25＋y²/16＝1","C. y²/25＋x²/16＝1","D. x²/25＋y²/9＝1"], ans:"B"},
+    {id:"ELL029", kp:"Distance from focus to co-vertex", q:"In the ellipse x²/a²＋y²/b²＝1 (a＞b＞0), the distance from any focus to an endpoint of the minor axis is（　　）", options:["A. a","B. b","C. c","D. a＋b"], ans:"A"},
+    {id:"ELL030", kp:"Vertices on major axis (vertical)", q:"The vertices on the major axis of the ellipse y²/16＋x²/9＝1 are（　　）", options:["A. (−3，0)，(3，0)","B. (−4，0)，(4，0)","C. (0，−3)，(0，3)","D. (0，−4)，(0，4)"], ans:"D"},
+    {id:"ELL031", kp:"Definition of an ellipse", q:"For any point P on the ellipse x²/25＋y²/9＝1, the sum of its distances to the two foci |PF₁|＋|PF₂| is（　　）", options:["A. 5","B. 10","C. 6","D. 8"], ans:"B"},
+    {id:"ELL032", kp:"Converse of definition", q:"If the distance sum from point P to F₁(−3，0) and F₂(3，0) is 10, then the locus of point P is（　　）", options:["A. a line segment","B. a hyperbola","C. an ellipse","D. a circle"], ans:"C"},
+    {id:"ELL033", kp:"Coordinates of a point on an ellipse", q:"If point P(3，y) lies on the ellipse x²/25＋y²/16＝1, then y＝（　　）", options:["A. ±16/5","B. ±12/5","C. ±4/5","D. ±3"], ans:"A"},
+    {id:"ELL034", kp:"Determining a vertex of an ellipse", q:"The positional relationship between point P(5，0) and the ellipse x²/25＋y²/16＝1 is（　　）", options:["A. inside the ellipse","B. a focus","C. an endpoint of the minor axis","D. a vertex on the major axis"], ans:"D"},
+    {id:"ELL035", kp:"Intersections with the x-axis", q:"The intersections of the ellipse x²/25＋y²/16＝1 with the x-axis are（　　）", options:["A. (0，−4)，(0，4)","B. (−4，0)，(4，0)","C. (−5，0)，(5，0)","D. (0，−5)，(0，5)"], ans:"C"},
+    {id:"ELL036", kp:"Intersections with the y-axis", q:"The intersections of the ellipse x²/16＋y²/9＝1 with the y-axis are（　　）", options:["A. (−4，0)，(4，0)","B. (0，−3)，(0，3)","C. (−3，0)，(3，0)","D. (0，−4)，(0，4)"], ans:"B"},
+    {id:"ELL037", kp:"Determining a point on an ellipse", q:"Among the following points, the one that lies on the ellipse x²/25＋y²/9＝1 is（　　）", options:["A. (0，5)","B. (3，0)","C. (4，3)","D. (5，0)"], ans:"D"},
+    {id:"ELL038", kp:"Range of the x-coordinate", q:"The x-coordinate of a point P(x，y) on the ellipse x²/16＋y²/9＝1 satisfies（　　）", options:["A. −4≤x≤4","B. −3≤x≤3","C. x≥4","D. x∈ℝ"], ans:"A"},
+    {id:"ELL039", kp:"Range of the y-coordinate", q:"The y-coordinate of a point P(x，y) on the ellipse x²/25＋y²/9＝1 satisfies（　　）", options:["A. −5≤y≤5","B. −3≤y≤3","C. y≥0","D. y∈ℝ"], ans:"B"},
+    {id:"ELL040", kp:"Symmetry of an ellipse", q:"The axes of symmetry and center of symmetry of the ellipse x²/16＋y²/9＝1 are（　　）", options:["A. only the x-axis","B. only the y-axis","C. the x-axis, y-axis, and origin","D. only the origin"], ans:"C"},
+    {id:"ELL041", kp:"Direction of foci", q:"The foci of the ellipse x²/a²＋y²/b²＝1 (a＞b＞0) lie on（　　）", options:["A. the y-axis","B. the line y＝x","C. the x-axis","D. cannot be determined"], ans:"C"},
+    {id:"ELL042", kp:"Relation among parameters", q:"Regarding the ellipse x²/a²＋y²/b²＝1 (a＞b＞0), which of the following relations is correct?（　　）", options:["A. a²＝b²＋c²","B. c²＝a²＋b²","C. b²＝a²＋c²","D. a＝b＋c"], ans:"A"},
+    {id:"ELL043", kp:"Distance from focus to adjacent vertex", q:"The distance from the right focus to the right vertex of the ellipse x²/25＋y²/16＝1 is（　　）", options:["A. 3","B. 1","C. 4","D. 2"], ans:"D"},
+    {id:"ELL044", kp:"Focal distance formula", q:"The focal distance 2c of the ellipse x²/a²＋y²/b²＝1 (a＞b＞0) is（　　）", options:["A. √(a²−b²)","B. 2√(a²−b²)","C. 2√(a²＋b²)","D. a²−b²"], ans:"B"},
+    {id:"ELL045", kp:"Perimeter of focal triangle", q:"Point P lies on the ellipse x²/25＋y²/9＝1 with foci F₁, F₂. The perimeter of triangle PF₁F₂ is（　　）", options:["A. 18","B. 16","C. 20","D. 14"], ans:"A"},
+    {id:"ELL046", kp:"Simplifying ellipse equation", q:"The equation 16x²＋25y²＝400 can be simplified to（　　）", options:["A. x²/16＋y²/25＝1","B. x²/25−y²/16＝1","C. x²/25＋y²/16＝1","D. x²/400＋y²/400＝1"], ans:"C"},
+    {id:"ELL047", kp:"Recognizing ellipse from general coefficients", q:"Among the following equations, the one that represents an ellipse is（　　）", options:["A. x²/16−y²/9＝1","B. x²/25＋y²/16＝1","C. x²＋y²＝16","D. x²/16＋y²/16＝0"], ans:"B"},
+    {id:"ELL048", kp:"Major axis direction after simplification", q:"The major axis of the ellipse 4x²＋y²＝4 lies on（　　）", options:["A. the x-axis","B. the line y＝x","C. cannot be determined","D. the y-axis"], ans:"D"},
+    {id:"ELL049", kp:"Semi-axis lengths", q:"The semi-major axis length and semi-minor axis length of the ellipse x²/16＋y²/9＝1 are respectively（　　）", options:["A. 4，3","B. 8，6","C. 16，9","D. 2，√3"], ans:"A"},
+    {id:"ELL050", kp:"Writing equation from foci and a point", q:"An ellipse has foci (0，−3)、(0，3) and passes through point (4，0); then its equation is（　　）", options:["A. x²/25＋y²/16＝1","B. y²/16＋x²/25＝1","C. y²/9＋x²/16＝1","D. y²/25＋x²/16＝1"], ans:"D"}
+  ],
+
+  parabolas: [
+    {id:"PAR001", kp:"Recognizing standard equation (opens right)", q:"Among the following equations, the one that represents a parabola opening to the right is（　　）", options:["A. y²＝−4x","B. y²＝4x","C. x²＝4y","D. x²＝−4y"], ans:"B"},
+    {id:"PAR002", kp:"Recognizing standard equation (opens up)", q:"Among the following equations, the one that represents a parabola opening upward is（　　）", options:["A. y²＝8x","B. y²＝−8x","C. x²＝−8y","D. x²＝8y"], ans:"D"},
+    {id:"PAR003", kp:"Vertex of a parabola", q:"The vertex of the parabola y²＝8x is（　　）", options:["A. (0，0)","B. (2，0)","C. (0，2)","D. (4，0)"], ans:"A"},
+    {id:"PAR004", kp:"Axis of symmetry", q:"The axis of symmetry of the parabola y²＝6x is（　　）", options:["A. the y-axis","B. the line y＝x","C. the x-axis","D. the line x＝3"], ans:"C"},
+    {id:"PAR005", kp:"Focus of a parabola (opens right)", q:"The focus of the parabola y²＝4x is（　　）", options:["A. (2，0)","B. (1，0)","C. (0，1)","D. (−1，0)"], ans:"B"},
+    {id:"PAR006", kp:"Directrix of a parabola (opens right)", q:"The directrix equation of the parabola y²＝4x is（　　）", options:["A. x＝1","B. y＝−1","C. y＝1","D. x＝−1"], ans:"D"},
+    {id:"PAR007", kp:"Focus of a parabola (opens left)", q:"The focus of the parabola y²＝−8x is（　　）", options:["A. (2，0)","B. (0，−2)","C. (−2，0)","D. (−4，0)"], ans:"C"},
+    {id:"PAR008", kp:"Directrix of a parabola (opens left)", q:"The directrix equation of the parabola y²＝−8x is（　　）", options:["A. x＝2","B. x＝−2","C. y＝2","D. y＝−2"], ans:"A"},
+    {id:"PAR009", kp:"Focus of a parabola (opens up)", q:"The focus of the parabola x²＝4y is（　　）", options:["A. (1，0)","B. (0，2)","C. (0，−1)","D. (0，1)"], ans:"D"},
+    {id:"PAR010", kp:"Directrix of a parabola (opens up)", q:"The directrix equation of the parabola x²＝4y is（　　）", options:["A. x＝−1","B. y＝−1","C. y＝1","D. x＝1"], ans:"B"},
+    {id:"PAR011", kp:"Focus of a parabola (opens down)", q:"The focus of the parabola x²＝−12y is（　　）", options:["A. (0，−3)","B. (0，3)","C. (−3，0)","D. (0，−6)"], ans:"A"},
+    {id:"PAR012", kp:"Directrix of a parabola (opens down)", q:"The directrix equation of the parabola x²＝−12y is（　　）", options:["A. y＝−3","B. x＝3","C. y＝3","D. x＝−3"], ans:"C"},
+    {id:"PAR013", kp:"Parameter p of a parabola", q:"The focal parameter p of the parabola y²＝8x is（　　）", options:["A. 8","B. 2","C. 1","D. 4"], ans:"D"},
+    {id:"PAR014", kp:"Eccentricity of a parabola", q:"The eccentricity e of any parabola is always equal to（　　）", options:["A. 0","B. 1","C. √2","D. greater than 1"], ans:"B"},
+    {id:"PAR015", kp:"Distance between focus and directrix", q:"For the parabola y²＝2px (p＞0), the distance between the focus and the directrix is（　　）", options:["A. p/2","B. 2p","C. p","D. p²"], ans:"C"},
+    {id:"PAR016", kp:"Finding directrix from p", q:"The directrix equation of the parabola y²＝12x is（　　）", options:["A. x＝−3","B. x＝3","C. y＝−3","D. x＝−6"], ans:"A"},
+    {id:"PAR017", kp:"Equation from focus (opens right)", q:"A parabola has vertex (0，0) and focus (2，0); its equation is（　　）", options:["A. y²＝4x","B. y²＝8x","C. x²＝8y","D. y²＝−8x"], ans:"B"},
+    {id:"PAR018", kp:"Equation from directrix (opens right)", q:"A parabola has vertex (0，0) and directrix x＝−3; its equation is（　　）", options:["A. y²＝6x","B. y²＝−12x","C. x²＝12y","D. y²＝12x"], ans:"D"},
+    {id:"PAR019", kp:"Equation from focus (opens up)", q:"A parabola has vertex (0，0) and focus (0，3); its equation is（　　）", options:["A. y²＝12x","B. x²＝6y","C. x²＝12y","D. x²＝−12y"], ans:"C"},
+    {id:"PAR020", kp:"Equation from directrix (opens down)", q:"A parabola has vertex (0，0) and directrix y＝2; its equation is（　　）", options:["A. x²＝−8y","B. x²＝8y","C. y²＝−8x","D. x²＝−4y"], ans:"A"},
+    {id:"PAR021", kp:"Distance from point to focus", q:"Point P(2，y) lies on the parabola y²＝8x. The distance from point P to the focus is（　　）", options:["A. 4","B. 2","C. 6","D. 8"], ans:"A"},
+    {id:"PAR022", kp:"Finding coordinate from focal distance", q:"Point P(x，y) lies on the parabola y²＝4x. If the distance from P to the focus is 5, then x＝（　　）", options:["A. 5","B. 3","C. 2","D. 4"], ans:"D"},
+    {id:"PAR023", kp:"Finding equation passing through a point", q:"A parabola has vertex (0，0), opens to the right, and passes through point (2，4); its equation is（　　）", options:["A. y²＝4x","B. y²＝8x","C. y²＝16x","D. x²＝y"], ans:"B"},
+    {id:"PAR024", kp:"Vertical parabola passing through a point", q:"A parabola has vertex (0，0), opens upward, and passes through point (4，2); its equation is（　　）", options:["A. x²＝4y","B. y²＝y","C. x²＝8y","D. x²＝16y"], ans:"C"},
+    {id:"PAR025", kp:"Finding parameter p from directrix", q:"If the directrix of the parabola y²＝2px (p＞0) is x＝−2, then p＝（　　）", options:["A. 2","B. 1","C. 4","D. 8"], ans:"C"},
+    {id:"PAR026", kp:"Distance from focus to vertex", q:"The distance from the focus to the vertex of the parabola y²＝8x is（　　）", options:["A. 2","B. 4","C. 1","D. 8"], ans:"A"},
+    {id:"PAR027", kp:"Finding y-coordinate of a point", q:"If point P(2，y) lies on the parabola y²＝8x, then y＝（　　）", options:["A. 4","B. −4","C. 16","D. ±4"], ans:"D"},
+    {id:"PAR028", kp:"Directrix of vertical parabola", q:"The directrix equation of the parabola x²＝8y is（　　）", options:["A. y＝2","B. y＝−2","C. x＝−2","D. x＝2"], ans:"B"},
+    {id:"PAR029", kp:"Focus of parabola opening left", q:"The focus coordinates of the parabola y²＝−4x are（　　）", options:["A. (−1，0)","B. (1，0)","C. (0，−1)","D. (−2，0)"], ans:"A"},
+    {id:"PAR030", kp:"Length of the latus rectum", q:"The length of the focal chord perpendicular to the axis of symmetry (latus rectum) of y²＝8x is（　　）", options:["A. 2","B. 4","C. 16","D. 8"], ans:"D"},
+    {id:"PAR031", kp:"Definition of a parabola", q:"A parabola is the locus of points in a plane whose distances to a fixed point (focus) and a fixed line (directrix) are（　　）", options:["A. proportional by e＞1","B. equal","C. proportional by e＜1","D. sum to a constant"], ans:"B"},
+    {id:"PAR032", kp:"Distance to directrix equals distance to focus", q:"Point P lies on the parabola y²＝6x. If the distance from P to the directrix is 5, then its distance to the focus is（　　）", options:["A. 2.5","B. 3","C. 5","D. 6"], ans:"C"},
+    {id:"PAR033", kp:"Determining a point on a parabola", q:"Which of the following points lies on the parabola y²＝4x?（　　）", options:["A. (1，2)","B. (2，1)","C. (1，4)","D. (4，2)"], ans:"A"},
+    {id:"PAR034", kp:"The vertex as a special point", q:"The positional relationship between point (0，0) and the parabola y²＝4x is（　　）", options:["A. outside the parabola","B. the focus","C. on the directrix","D. the vertex"], ans:"D"},
+    {id:"PAR035", kp:"Intersection with coordinate axis", q:"The intersection point of the parabola y²＝4x with the x-axis is（　　）", options:["A. (1，0)","B. (2，0)","C. (0，0)","D. (−1，0)"], ans:"C"},
+    {id:"PAR036", kp:"Intersection with a vertical line", q:"The intersection points of the line x＝2 and the parabola y²＝8x are（　　）", options:["A. (2，4) only","B. (2，−4) and (2，4)","C. (2，2) and (2，−2)","D. (2，16)"], ans:"B"},
+    {id:"PAR037", kp:"Determining a point on a parabola", q:"Among the following points, the one that lies on the parabola y²＝12x is（　　）", options:["A. (2，4)","B. (1，3)","C. (4，6)","D. (3，6)"], ans:"D"},
+    {id:"PAR038", kp:"Range of the x-coordinate", q:"The x-coordinate of a point P(x，y) on the parabola y²＝8x satisfies（　　）", options:["A. x≥0","B. x≤0","C. x∈ℝ","D. x≥2"], ans:"A"},
+    {id:"PAR039", kp:"Range of the y-coordinate", q:"The y-coordinate of a point P(x，y) on the parabola y²＝8x satisfies（　　）", options:["A. y≥0","B. y∈ℝ","C. y≤0","D. −4≤y≤4"], ans:"B"},
+    {id:"PAR040", kp:"Symmetry of a horizontal parabola", q:"The parabola y²＝4x is symmetric about（　　）", options:["A. the origin","B. the y-axis","C. the x-axis","D. the line y＝x"], ans:"C"},
+    {id:"PAR041", kp:"Opening direction from equation", q:"The opening direction of the parabola represented by x²＝−6y is（　　）", options:["A. upwards","B. to the left","C. downwards","D. to the right"], ans:"C"},
+    {id:"PAR042", kp:"Focus formula", q:"For the parabola y²＝2px (p＞0), the coordinates of its focus are（　　）", options:["A. (p/2，0)","B. (p，0)","C. (0，p/2)","D. (−p/2，0)"], ans:"A"},
+    {id:"PAR043", kp:"Distance between focus and directrix", q:"The distance between the focus and directrix of the parabola y²＝10x is（　　）", options:["A. 10","B. 2.5","C. 20","D. 5"], ans:"D"},
+    {id:"PAR044", kp:"Finding parameter p for vertical parabola", q:"The parameter p of the parabola x²＝4y is（　　）", options:["A. 4","B. 2","C. 1","D. 8"], ans:"B"},
+    {id:"PAR045", kp:"Directrix of quadratic form y＝ax²", q:"The directrix equation of the parabola y＝(1/4)x² is（　　）", options:["A. y＝−1","B. y＝1","C. x＝−1","D. y＝−2"], ans:"A"},
+    {id:"PAR046", kp:"Simplification to standard form", q:"The equation 2y²＝8x can be simplified to the standard form（　　）", options:["A. y²＝2x","B. y²＝8x","C. y²＝4x","D. x²＝4y"], ans:"C"},
+    {id:"PAR047", kp:"Recognizing a parabola", q:"Among the following equations, the one that represents a parabola is（　　）", options:["A. x²＋y²＝4","B. y²＝4x","C. x²/4−y²/9＝1","D. x²/4＋y²/9＝1"], ans:"B"},
+    {id:"PAR048", kp:"Axis of symmetry of vertical parabola", q:"The axis of symmetry of the parabola x²＝−4y is（　　）", options:["A. the line y＝−1","B. the x-axis","C. the line x＝1","D. the y-axis"], ans:"D"},
+    {id:"PAR049", kp:"Latus rectum of vertical parabola", q:"The length of the latus rectum of the parabola x²＝12y is（　　）", options:["A. 12","B. 6","C. 3","D. 24"], ans:"A"},
+    {id:"PAR050", kp:"Finding coefficient from directrix", q:"If the directrix equation of the parabola y²＝ax is x＝2, then a＝（　　）", options:["A. 4","B. −4","C. 8","D. −8"], ans:"D"}
+  ]
+};
+
+/* ==================== 2. APPLICATION LOGIC ==================== */
+let currentTab = 'circles';
+let currentMode = 'practice';
+let isGridCollapsed = false;
+let userAnswers = {
+  circles: {},
+  hyperbolas: {},
+  ellipses: {},
+  parabolas: {}
+};
+let examSubmitted = {
+  circles: false,
+  hyperbolas: false,
+  ellipses: false,
+  parabolas: false
+};
+
+function switchTab(tabKey) {
+  currentTab = tabKey;
+  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+  document.getElementById(`tab-${tabKey}`).classList.add('active');
+
+  const names = {circles: "Circles", hyperbolas: "Hyperbolas", ellipses: "Ellipses", parabolas: "Parabolas"};
+  document.getElementById('key-title').innerText = `Quick Answer Key (${names[tabKey]})`;
+
+  renderApp();
+}
+
+function setMode(mode) {
+  currentMode = mode;
+  document.getElementById('btn-practice').classList.toggle('active', mode === 'practice');
+  document.getElementById('btn-exam').classList.toggle('active', mode === 'exam');
+
+  document.getElementById('score-box').style.display = mode === 'exam' ? 'flex' : 'none';
+  document.getElementById('practice-acc-box').style.display = mode === 'practice' ? 'flex' : 'none';
+  document.getElementById('btn-submit-exam').style.display = mode === 'exam' ? 'inline-block' : 'none';
+
+  renderApp();
+}
+
+function toggleNavigatorGrid() {
+  isGridCollapsed = !isGridCollapsed;
+  const navRow = document.getElementById('bar-nav-row');
+  const btn = document.getElementById('toggle-grid-btn');
+  navRow.classList.toggle('collapsed', isGridCollapsed);
+  btn.innerText = isGridCollapsed ? '▼ Show Grid' : '▲ Minimize';
+}
+
+function renderApp() {
+  renderNavigator();
+  renderQuestions();
+  renderAnswerKeyTable();
+  updateStats();
+}
+
+function renderNavigator() {
+  const container = document.getElementById('jump-grid');
+  container.innerHTML = '';
+  const questions = DATA[currentTab];
+  const answers = userAnswers[currentTab];
+  const isExamDone = currentMode === 'exam' && examSubmitted[currentTab];
+
+  questions.forEach((q, idx) => {
+    const node = document.createElement('a');
+    node.className = 'jump-node';
+    node.innerText = idx + 1;
+    node.href = `#q-${q.id}`;
+
+    const chosen = answers[q.id];
+    if (chosen) {
+      if (currentMode === 'practice') {
+        node.classList.add(chosen === q.ans ? 'correct' : 'wrong');
+      } else if (isExamDone) {
+        node.classList.add(chosen === q.ans ? 'correct' : 'wrong');
+      } else {
+        node.classList.add('answered');
+      }
+    }
+
+    container.appendChild(node);
+  });
+}
+
+function renderQuestions() {
+  const container = document.getElementById('questions-container');
+  container.innerHTML = '';
+  const questions = DATA[currentTab];
+  const answers = userAnswers[currentTab];
+  const isExamDone = currentMode === 'exam' && examSubmitted[currentTab];
+
+  questions.forEach((item) => {
+    const card = document.createElement('div');
+    card.className = 'q-card';
+    card.id = `q-${item.id}`;
+
+    const chosen = answers[item.id];
+
+    let optionsHtml = item.options.map(opt => {
+      const optLetter = opt.charAt(0);
+      let btnClasses = ['opt-btn'];
+
+      if (chosen === optLetter) {
+        btnClasses.push('selected');
+      }
+
+      if (currentMode === 'practice' && chosen) {
+        if (optLetter === item.ans) {
+          btnClasses.push('correct');
+        } else if (chosen === optLetter && chosen !== item.ans) {
+          btnClasses.push('wrong');
+        }
+      } else if (isExamDone) {
+        if (optLetter === item.ans) {
+          btnClasses.push('correct');
+        } else if (chosen === optLetter && chosen !== item.ans) {
+          btnClasses.push('wrong');
+        }
+      }
+
+      return `<button class="${btnClasses.join(' ')}" onclick="selectOption('${item.id}', '${optLetter}')">
+                ${opt}
+              </button>`;
+    }).join('');
+
+    let feedbackHtml = '';
+    if ((currentMode === 'practice' && chosen) || isExamDone) {
+      const isRight = chosen === item.ans;
+      feedbackHtml = `
+        <div class="q-feedback show ${isRight ? 'correct' : 'wrong'}">
+          ${isRight ? '✓ <strong>Correct!</strong>' : `✗ <strong>Incorrect.</strong> The correct answer is <strong>${item.ans}</strong>.`}
+        </div>
+      `;
+    }
+
+    card.innerHTML = `
+      <div class="q-header">
+        <span class="q-id">${item.id}</span>
+        <span class="q-tag">【Knowledge Point: ${item.kp}】</span>
+      </div>
+      <div class="q-text">${item.q}</div>
+      <div class="options-grid grid-2">${optionsHtml}</div>
+      ${feedbackHtml}
+    `;
+
+    container.appendChild(card);
+  });
+}
+
+function selectOption(qId, letter) {
+  if (currentMode === 'exam' && examSubmitted[currentTab]) return;
+
+  userAnswers[currentTab][qId] = letter;
+  renderNavigator();
+  renderQuestions();
+  updateStats();
+}
+
+function updateStats() {
+  const total = DATA[currentTab].length;
+  const answers = userAnswers[currentTab];
+  const answeredCount = Object.keys(answers).length;
+
+  document.getElementById('stat-progress').innerText = `${answeredCount} / ${total}`;
+
+  let correctCount = 0;
+  for (let id in answers) {
+    const qObj = DATA[currentTab].find(q => q.id === id);
+    if (qObj && answers[id] === qObj.ans) {
+      correctCount++;
+    }
+  }
+
+  if (currentMode === 'practice') {
+    if (answeredCount === 0) {
+      document.getElementById('stat-accuracy').innerText = '--';
+    } else {
+      const rate = Math.round((correctCount / answeredCount) * 100);
+      document.getElementById('stat-accuracy').innerText = `${rate}% (${correctCount}/${answeredCount})`;
+    }
+  } else {
+    if (examSubmitted[currentTab]) {
+      const score = Math.round((correctCount / total) * 100);
+      document.getElementById('stat-score').innerText = `${score}% (${correctCount}/${total})`;
+    } else {
+      document.getElementById('stat-score').innerText = `Not Graded`;
+    }
+  }
+}
+
+function submitExam() {
+  examSubmitted[currentTab] = true;
+  renderApp();
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function resetCurrentTab() {
+  if (confirm(`Reset all answers for the current topic (${currentTab})?`)) {
+    userAnswers[currentTab] = {};
+    examSubmitted[currentTab] = false;
+    renderApp();
+  }
+}
+
+function toggleAnswerKey() {
+  const content = document.getElementById('key-content');
+  const arrow = document.getElementById('key-arrow');
+  const isOpen = content.classList.toggle('open');
+  arrow.innerText = isOpen ? '▲' : '▼';
+}
+
+function renderAnswerKeyTable() {
+  const table = document.getElementById('key-table');
+  const questions = DATA[currentTab];
+
+  let headerHtml = '<tr>';
+  for (let i = 0; i < 10; i++) {
+    headerHtml += `<th>Q#</th><th>Ans</th>`;
+  }
+  headerHtml += '</tr>';
+
+  let bodyHtml = '';
+  for (let row = 0; row < 5; row++) {
+    bodyHtml += '<tr>';
+    for (let col = 0; col < 10; col++) {
+      const index = col * 5 + row;
+      if (index < questions.length) {
+        const q = questions[index];
+        bodyHtml += `<td><strong>${q.id}</strong></td><td class="correct-highlight">${q.ans}</td>`;
+      } else {
+        bodyHtml += `<td></td><td></td>`;
+      }
+    }
+    bodyHtml += '</tr>';
+  }
+
+  table.innerHTML = `<thead>${headerHtml}</thead><tbody>${bodyHtml}</tbody>`;
+}
+
+// Initialize Application
+renderApp();
+</script>
+</body>
+</html>
